@@ -1,0 +1,52 @@
+# Numeric-Base-Conversion-and-Calculator
+Converts between hex, decimal, binary, and octal signed numbers
+
+Sanjana Dodley
+
+CODE IMPLEMENTATION: CALC.C
+STRUCTS and ENUMS:
+● struct Number_ ​(typedef‐> Number​) ‐ A Number represents a number with parameters
+sign (1 for positive, 0 for negative), type (enum value for types binary,octal,decimal, or
+hex), and input (the value of the number in char* format)
+● enum dataType​‐ corresponds to data types: binary, hex, octal, and decimal.
+
+FUNCTIONS:
+● Number* NumberCreate(char* inputS, char typeS, int s)​‐ creates a Number struct with
+parameters inputS (a value in char* format), typeS (the char associated with the
+corresponding to the type of number), and s (the sign, either 0 or 1).
+● int power(int x, int n) ​‐ power method that takes the int x, and returns the value x to
+the nth power
+● char* ConvertString(int a) ​‐ converts a given integer into char* format. [Note: this
+method only works if a is guaranteed to only have numbers in its value].
+in will be be divided and multiplied by powers of 10 to get a char*.
+● int ConvertInt(char* str)​‐ Converts a char* into an int. [Note: this method only works if
+str is guaranteed to have numbers as its values]
+● void printNumber(Number* a)​‐ Prints the information of a number struct.
+● Number* ConvertDecimal(Number* a)​‐ Converts a Number struct into a Number Struct
+of type Decimal. The value is changed to a decimal value, the type is changed to ‘d’, and
+the sign stays the same as the original.
+● Number* ConvertHex(Number* a) ​‐ Converts a Number struct into a Number Struct of
+type Hex. The value is changed to a hex value, the type is changed to ‘x’, and the sign
+stays the same as the original.
+● Number* ConvertBinary(Number* a) ​‐ Converts a Number struct into a Number Struct
+of type Binary. The value is changed to a binary value, the type is changed to ‘b’, and the
+sign stays the same as the original.
+● Number* ConvertOctal(Number* a)​‐ Converts a Number struct into a Number Struct of
+type Octal. The value is changed to a octal value, the type is changed to ‘o’, and the sign
+stays the same as the original.
+● Number* operate(Number* a, Number* b, char type, char op)​‐ given two numbers,
+the operation (+/‐/*), and the type of result desired; this method will turn both
+Numbers into type decimal, compute the arithmetic and return a number with type,
+‘type’.
+● int FormatCheck(char* arg1, char* arg2, char* arg3, char* arg4) ​‐ given the four
+command line arguments, this method will check for format errors.
+
+ALGORITHM/LOGIC OVERVIEW
+● This code takes the two numbers from the terminal command line and creates Number
+structs of them depending on their type and sign. They are then passed, along with the
+operator and desired result type to operate​function where both Number structs
+provide information to form an integer of decimal type. Depending on the operator, the
+result is computed using simple arithmetic and is then converted back into a char*
+where it is passed to one of many conversion functions​along with the desired type and
+sign to return a Number Struct with the desired result. The printNumber​function then
+prints the intended result.
